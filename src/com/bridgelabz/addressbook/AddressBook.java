@@ -1,15 +1,13 @@
 package com.bridgelabz.addressbook;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class AddressBook {
 	
 	 Scanner sc = new Scanner(System.in);
-
-	    
+	    ArrayList<Contacts>contactsList=new ArrayList<>();
 	    Contacts contacts = new Contacts();
-
-	    
 	    public void addNewContact() {
 	        System.out.println("----------------------------------");
 	        System.out.println("Enter the Contact Details :-");
@@ -29,34 +27,23 @@ public class AddressBook {
 	        contacts.setPhonenumber(sc.nextLong());
 	        System.out.println("Enter the EMail ID :");
 	        contacts.setEmail(sc.next());
+	        contactsList.add(contacts);
 	        System.out.println("Contacts Added Successfully------!!!");
 	        System.out.println("-----------------------------------------");
 	    }
-
-	    //Method to Show the Contact Details
 	    public void displayContact() {
 	        if(contacts.getFirstname()==null) {
 	            System.out.println("No Contact Found------!!!!!!!!!");
 	            System.out.println("---------------------------------");
 	        } else{
-	        System.out.println("--------------------------------------------");
-	        System.out.println("Contact Details :-");
-	        System.out.println("Name : "+contacts.getFirstname()+" "+contacts.getLastname());
-	        System.out.println("Address : "+contacts.getAddress());
-	        System.out.println("City : "+contacts.getCity());
-	        System.out.println("State : "+contacts.getState());
-	        System.out.println("PIN Code : "+contacts.getPin());
-	        System.out.println("Phone Number : "+contacts.getPhonenumber());
-	        System.out.println("EMail ID : "+contacts.getEmail());
-	        System.out.println("---------------------------------------------");}
+	            System.out.println("--------------------------------------------");
+	            System.out.println(contactsList.toString());
+	            System.out.println("---------------------------------------------");}
 	    }
-	    
 	    public void editContact() {
-	        
 	        System.out.println("Enter the First Name : ");
 	        String firstName = sc.next();
 
-	        
 	        if(!firstName.equalsIgnoreCase(contacts.getFirstname())) {
 	            System.out.println("The Entered Contact Name is Not Available in Address Book");
 	        } else {
@@ -83,11 +70,9 @@ public class AddressBook {
 	        }
 	    }
 	    public void deleteContact(){
-	        
 	        System.out.println("Enter the First Name : ");
 	        String firstName = sc.next();
 
-	        
 	        if(!firstName.equalsIgnoreCase(contacts.getFirstname())) {
 	            System.out.println("The Entered Contact Name is Not Available in Address Book");
 	        } else {

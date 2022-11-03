@@ -5,11 +5,7 @@ public class AddressBookMain {
 	        System.out.println("Welcome to Address Book Program");
 	        
 	        int choice;
-
-	        
 	        AddressBook addressBook = new AddressBook();
-
-	        
 	        do {
 	            System.out.println("1. Add New Contact\n2. Edit Contact\n3. Delete Contact" + "\n4. Display Contact\n5. Exit");
 	            System.out.println("Enter Choice: ");
