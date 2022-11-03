@@ -1,7 +1,7 @@
 package com.bridgelabz.addressbook;
 
 public class AddressBookMain {
-	 public static void main(String[] args) {
+	  public static void main(String[] args) {
 	        System.out.println("Welcome to Address Book Program");
 	        
 	        int choice;
@@ -9,9 +9,10 @@ public class AddressBookMain {
 	        
 	        AddressBook addressBook = new AddressBook();
 
+	        
 	        do {
 	            System.out.println("1. Add New Contact\n2. Edit Contact\n3. Delete Contact" + "\n4. Display Contact\n5. Exit");
-	            System.out.println("Enter Choise: ");
+	            System.out.println("Enter Choice: ");
 	            choice = addressBook.sc.nextInt();
 
 	            switch (choice) {
@@ -22,6 +23,7 @@ public class AddressBookMain {
 	                    addressBook.editContact();
 	                    break;
 	                case 3:
+	                    addressBook.deleteContact();
 	                    break;
 	                case 4:
 	                    addressBook.displayContact();
@@ -33,7 +35,7 @@ public class AddressBookMain {
 	                    System.out.println("Please Select between 1 to 5 only.");
 	                    break;
 	            }
-	        }while( choice != 5 );
-
+	        }
+	        while( choice != 5 );
 	    }
 }
