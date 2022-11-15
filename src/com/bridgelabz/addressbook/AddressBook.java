@@ -140,5 +140,10 @@ public class AddressBook {
 	        long count = list.stream().filter(n -> n.getState().equalsIgnoreCase(state)).count();
 	        System.out.println("Total number of Persons in city " + state + ":" + count);
 	    }
-	
+	    public void sortedList(){
+	       List<Contacts>sortedlist=list.stream().sorted(Comparator.comparing(contacts ->contacts.getFirstname())).collect(Collectors.toList());
+	        for (Contacts details:sortedlist) {
+	            System.out.println(details.toString());
+	        }
+	    }
 }
