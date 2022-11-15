@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class AddressBook {
 	
-    Scanner sc = new Scanner(System.in);
+	Scanner sc = new Scanner(System.in);
     Contacts contacts;
     ArrayList<Contacts> list = new ArrayList<>();
     public void addNewContact() {
@@ -109,5 +109,14 @@ public class AddressBook {
             System.out.println("Not Found");
         }
     }
-
+        public  void searchByCity() {
+            System.out.println("Enter city Name:");
+            String city = sc.next();
+            list.stream().filter(contacts -> contacts.getCity().equalsIgnoreCase(city)).forEach(contacts -> System.out.println(contacts));
+        }
+        public void searchByState() {
+            System.out.println("Enter State Name:");
+            String state = sc.next();
+            list.stream().filter(contacts -> contacts.getState().equalsIgnoreCase(state)).forEach(contacts -> System.out.println(contacts));
+    }
 }
