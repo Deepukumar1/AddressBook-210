@@ -1,14 +1,9 @@
 package com.bridgelabz.addressbook;
 
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
-import java.io.IOException;
 import java.util.*;
 import java.util.stream.Collectors;
-
-import java.util.ArrayList;
-import java.util.Scanner;
 
 public class AddressBook {
 	 Scanner sc = new Scanner(System.in);
@@ -127,11 +122,15 @@ public class AddressBook {
 	        public void deleteContact () {
 	            System.out.println("Enter the First Name : ");
 	            String firstName = sc.next();
-	            if (firstName.equalsIgnoreCase(contacts.getFirstname())) {
-	                list.remove(contacts);
-	                System.out.println("Contact Deleted Successfully-------!!!");
-	            } else {
-	                System.out.println("Not Found");
+	            try {
+	                if (firstName.equalsIgnoreCase(contacts.getFirstname())) {
+	                    list.remove(contacts);
+	                    System.out.println("Contact Deleted Successfully-------!!!");
+	                } else {
+	                    System.out.println("Not Found");
+	                }
+	            } catch (NullPointerException e) {
+	                System.out.println("Contact Not Found---!!");
 	            }
 	        }
 
@@ -171,7 +170,7 @@ public class AddressBook {
 	    }
 	    public void writeFiles()  {
 	        try{
-	            FileWriter fw=new FileWriter("Contact.txt");
+	            FileWriter fw=new FileWriter("Contact.csv");
 	            fw.write(String.valueOf(list));
 	            fw.write("\n");
 	            fw.flush();
@@ -181,7 +180,7 @@ public class AddressBook {
 	    }
 	    public void readFiles(){
 	        try {
-	            FileReader fr = new FileReader("Contact.txt");
+	            FileReader fr = new FileReader("Contact.csv");
 	            int i;
 	            while ((i = fr.read()) != -1)
 	                System.out.print((char) i);
@@ -190,5 +189,4 @@ public class AddressBook {
 	            System.out.println("Read Successfully---!");
 	        }
 	    }
-	
 }
